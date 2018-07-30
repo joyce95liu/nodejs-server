@@ -28,14 +28,7 @@ module.exports = function (app) {
           student: studentId,
           section: sectionId
       };
-      // res.json(enrollment);
-
-      // enrollmentModel
-      //     .enrollStudentInSection(enrollment)
-      //     .then(function (enrollment) {
-      //       res.json(enrollment);
-      //     })
-
+      
         sectionModel
           .decrementSectionSeats(sectionId)
           .then(function () {
