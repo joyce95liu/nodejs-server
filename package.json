@@ -14,5 +14,9 @@
     "express-session": "^1.15.6",
     "install": "^0.12.1",
     "mongoose": "^5.2.4"
+  },
+  "engines": {
+    "node": "10.4.1",
+    "npm": "6.1.0"
   }
 }
