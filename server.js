@@ -1,16 +1,17 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/webdev-summer-2018');
+// mongoose.connect('mongodb://localhost/webdev-summer-2018');
 
+mongoose.connect('mongodb://heroku_n2d3pdqb:7dfa17rtb43qcl64v4otrc6ari@ds159631.mlab.com:59631/heroku_n2d3pdqb');
 
 var app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
-res.header("Access-Control-Allow-Origin",
-    "http://localhost:4200");
+// res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.header("Access-Control-Allow-Origin", "https://blooming-sea-46285.herokuapp.com");
 res.header("Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept");
 res.header("Access-Control-Allow-Methods",
