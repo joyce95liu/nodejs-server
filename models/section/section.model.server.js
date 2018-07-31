@@ -29,6 +29,7 @@ function incrementSectionSeats(sectionId) {
 function findSectionById(sectionId) {
     return sectionModel.findById(sectionId);
 }
+
 function deleteSection(sectionId){
     return sectionModel.remove({ _id: sectionId});
 }
