@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
  // res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header("Access-Control-Allow-Origin", "https://blooming-sea-46285.herokuapp.com");
+   res.header("Access-Control-Allow-Origin", "https://blooming-sea-46285.herokuapp.com");
 res.header("Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept");
 res.header("Access-Control-Allow-Methods",
@@ -56,7 +56,18 @@ function setSession(req, res) {
 }
 
 
+// var userModel =  require('./models/user/user.model.server');
+// userModel.createUser({
+//     username: 'david', password: 'bob'
+// });
+
+// var users = [];
 var userService = require('./services/user.service.server');
+userService(app);
+// userModel.findAllUsers()
+//     .then(function(users) {
+//         console.log(users);
+//     });
 require('./services/section.service.server')(app);
 require('./services/enrollment.service.server')(app);
 
