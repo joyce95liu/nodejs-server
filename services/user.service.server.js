@@ -58,7 +58,7 @@ module.exports = function (app) {
     function login(req, res) {
         var credentials = req.body;
         userModel
-            .findUserByCredentials1(credentials)
+            .findUserByCredentials(credentials)
             .then(function(user) {
                 if(user !== null) {
                     req.session['currentUser'] = user;
@@ -81,7 +81,7 @@ module.exports = function (app) {
     function register(req,res){
         var user = req.body;
         userModel
-            .findUserByCredentials(user)
+            .findUserByName(user.username)
             .then(function(users) {
                 if(users===null) {
                     userModel.createUser(user)
