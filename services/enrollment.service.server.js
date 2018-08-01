@@ -44,15 +44,21 @@ module.exports = function (app) {
             student: studentId,
             section: sectionId
         };
-
-        sectionModel
-            .decrementSectionSeats(sectionId)
-            .then(function () {
-                return enrollmentModel
-                    .enrollStudentInSection(enrollment)
-            })
-            .then(function (enrollment) {
-                res.json(enrollment);
+        sectionModel.findSectionById(sectionId)
+            .then( function (section) {
+                if (section.seats !==0) {
+                    sectionModel
+                        .decrementSectionSeats(sectionId)
+                        .then(function () {
+                            return enrollmentModel
+                                .enrollStudentInSection(enrollment)
+                        })
+                        .then(function (enrollment) {
+                            res.json(enrollment);
+                        })
+                } else {
+                    res.sendStatus(404);
+                }
             })
     }
 }

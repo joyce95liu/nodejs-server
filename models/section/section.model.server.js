@@ -52,5 +52,6 @@ module.exports = {
   decrementSectionSeats: decrementSectionSeats,
   incrementSectionSeats: incrementSectionSeats,
     deleteSection: deleteSection,
-    updateSection:updateSection
+    updateSection:updateSection,
+    findSectionById:findSectionById
 };

@@ -21,14 +21,16 @@ module.exports = function (app) {
             })
     }
 
-    function profile(req,res){
+    function profile(req,res) {
         // res.send(req.session['currentUser']);
         var currentUser = req.session['currentUser'];
-        var id = currentUser._id;
-        userModel.findUserById(id)
-            .then(function(user) {
-                res.json(user);
-            })
+        if (currentUser !== undefined) {
+            var id = currentUser._id;
+            userModel.findUserById(id)
+                .then(function (user) {
+                    res.json(user);
+                })
+        }
     }
 
     function createUser(req,res){
