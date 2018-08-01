@@ -58,10 +58,14 @@ module.exports = function (app) {
     function login(req, res) {
         var credentials = req.body;
         userModel
-            .findUserByCredentials(credentials)
+            .findUserByCredentials1(credentials)
             .then(function(user) {
-                req.session['currentUser'] = user;
-                res.json(user);
+                if(user !== null) {
+                    req.session['currentUser'] = user;
+                    res.json(user);
+                }else{
+                    res.sendStatus(404)
+                }
             })
     }
 
@@ -100,6 +104,5 @@ module.exports = function (app) {
             res.json(response);
         });
     }
-
 
 }
