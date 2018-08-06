@@ -83,7 +83,7 @@ module.exports = function (app) {
         userModel
             .findUserByName(user.username)
             .then(function(users) {
-                if(users===null) {
+                if(users.length===0) {
                     userModel.createUser(user)
                         .then(function (user){
                             req.session['currentUser'] = user;
